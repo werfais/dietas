@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clínica Nutrición y Fitness</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f8f7;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #2ecc71;
+      color: white;
+      padding: 20px 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      user-select: none;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #145a32;
+    }
+
+    main {
+      padding: 40px 10%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #27ae60;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #27ae60;
+      padding-bottom: 5px;
+      user-select: none;
+    }
+
+    /* Home / Presentación */
+    #home p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      user-select: none;
+    }
+
+    #home img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin-top: 20px;
+      border-radius: 10px;
+      user-select: none;
+    }
+
+    /* Servicios */
+    .servicio {
+      margin-bottom: 20px;
+    }
+
+    .servicio h3 {
+      color: #2c3e50;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+
+    .servicio p {
+      font-size: 1rem;
+      color: #555;
+      user-select: none;
+    }
+
+    /* Consejos */
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      color: #444;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    /* Calculadora IMC */
+    #imc-container {
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #imc-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 2px solid #27ae60;
+      border-radius: 5px;
+    }
+
+    #imc-container button {
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    #imc-container button:hover {
+      background-color: #1e8449;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #2c3e50;
+      user-select: none;
+    }
+
+    /* Contacto */
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 2px solid #27ae60;
+      resize: vertical;
+    }
+
+    form textarea {
+      min-height: 100px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    form button:hover {
+      background-color: #1e8449;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2ecc71;
+      color: white;
+      text-align: center;
+      padding: 15px 10%;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Clínica Nutrición & Fitness</h1>
+    <nav>
+      <a href="#home">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#consejos">Consejos</a>
+      <a href="#imc">Calculadora IMC</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <section id="home">
+      <h2>Bienvenido</h2>
+      <p>Bienvenido a Clínica Nutrición & Fitness, tu lugar para transformar tu salud y bienestar. Aquí te ayudamos con planes personalizados de nutrición y ejercicio para que alcances tus metas.</p>
+      <img src="https://static.vecteezy.com/system/resources/previews/021/296/396/non_2x/two-young-people-doing-exercises-with-dumbbells-at-home-illustration-collection-of-home-gym-workout-in-flat-cartoon-style-vector.jpg" />
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+      <h2>Servicios</h2>
+
+      <div class="servicio">
+        <h3>Planes de Nutrición Personalizados</h3>
+        <p>Te ayudamos a crear un plan de alimentación hecho a tu medida para que comas saludable sin sufrir.</p>
+      </div>
+
+      <div class="servicio">
+        <h3>Entrenamientos Personalizados</h3>
+        <p>Diseñamos rutinas de ejercicio adaptadas a tu nivel, para que puedas entrenar seguro y efectivo.</p>
+      </div>
+
+      <div class="servicio">
+        <h3>Talleres y Charlas</h3>
+        <p>Participa en nuestros talleres para aprender sobre nutrición, ejercicio y hábitos saludables que cambiarán tu vida.</p>
+      </div>
+    </section>
+
+    <!-- Consejos -->
+    <section id="consejos">
+      <h2>Consejos de Vida Fitness</h2>
+      <h3>Nutrición</h3>
+      <ul>
+        <li>Come alimentos naturales y evita los ultraprocesados.</li>
+        <li>Hidrátate bien durante el día.</li>
+        <li>Incluye proteínas, grasas saludables y carbohidratos en tu dieta.</li>
+      </ul>
+
+      <h3>Ejercicio</h3>
+      <ul>
+        <li>Empieza con ejercicios sencillos y aumenta la intensidad poco a poco.</li>
+        <li>Haz estiramientos antes y después de entrenar para evitar lesiones.</li>
+        <li>Combina cardio con ejercicios de fuerza.</li>
+      </ul>
+
+      <h3>Motivación</h3>
+      <ul>
+        <li>Establece metas realistas y celebra tus logros.</li>
+        <li>Encuentra un compañero de entrenamiento para mantenerte motivado.</li>
+        <li>Recuerda que los resultados toman tiempo, ¡no te rindas!</li>
+      </ul>
+    </section>
+
+    <!-- Calculadora IMC -->
+    <section id="imc">
+      <h2>Calculadora de IMC</h2>
+      <div id="imc-container">
+        <p>Introduce tu peso (kg) y altura (m) para calcular tu IMC.</p>
+        <input type="number" id="peso" placeholder="Peso en kg" min="1" step="0.1" />
+        <input type="number" id="altura" placeholder="Altura en metros" min="0.5" step="0.01" />
+        <button onclick="calcularIMC()">Calcular IMC</button>
+        <p id="resultado"></p>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form onsubmit="return enviarFormulario(event)">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required placeholder="Tu nombre" />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" required placeholder="tuemail@ejemplo.com" />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Clínica Nutrición & Fitness Davila Espinosa Miguel Alejandro</p>
+  </footer>
+
+  <script>
+    function calcularIMC() {
+      const peso = parseFloat(document.getElementById('peso').value);
+      const altura = parseFloat(document.getElementById('altura').value);
+      const resultado = document.getElementById('resultado');
+
+      if (!peso || !altura || peso <= 0 || altura <= 0) {
+        alert('Por favor, ingresa valores válidos.');
+        resultado.textContent = '';
+        return;
+      }
+
+      const imc = peso / (altura * altura);
+      let categoria = '';
+
+      if (imc < 18.5) {
+        categoria = 'Bajo peso';
+      } else if (imc >= 18.5 && imc < 24.9) {
+        categoria = 'Peso normal';
+      } else if (imc >= 25 && imc < 29.9) {
+        categoria = 'Sobrepeso';
+      } else {
+        categoria = 'Obesidad';
+      }
+
+do {
+async function name(params) {
+              
+}
+} while (condition);resultado.textContent = Tu IMC es ${imc.toFixed(2)}. Categoría: ${categoria};
+    }
+
+    function enviarFormulario(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !email || !mensaje) {
+        alert('Por favor, completa todos los campos.');
+        return false;
+      }
+
+  async (params) => {
+        alert(Gracias por contactarnos, ${nombre}! Te responderemos pronto.);
+  }
+      event.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
